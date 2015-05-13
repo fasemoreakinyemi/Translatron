@@ -8,3 +8,4 @@ pyzmq >= 14.0
 msgpack-python
 lxml
 beautifulsoup4
+requests
