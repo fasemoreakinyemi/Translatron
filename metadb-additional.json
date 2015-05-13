@@ -1,0 +1,27 @@
+{
+    "UniProt": {
+        "name": "UniProt",
+        "id": "UniProt",
+        "urltemplate": "http://uniprot.org/uniprot/%s",
+        "description": "Reviewed (SwissProt) and unreviewed (TrEMBL) protein database",
+        "category": "Proteomic databases",
+        "url": "http://uniprot.org",
+        "comment": "(Manually added) Not present in UniProt DB"
+    },
+    "MeSH": {
+        "name": "MeSH",
+        "id": "MeSH",
+        "urltemplate": "http://www.ncbi.nlm.nih.gov/mesh/?term=%s",
+        "description": "MeSH (Medical Subject Headings) is the NLM controlled vocabulary thesaurus used for indexing articles for PubMed",
+        "url": "http://www.ncbi.nlm.nih.gov/mesh",
+        "comment": "(Manually added) Not present in UniProt DB"
+    },
+    "Wikipedia": {
+        "name": "Wikipedia",
+        "id": "Wikipedia",
+        "urltemplate": "http://en.wikipedia.org/wiki/%s",
+        "description": "Wikipedia is a free-access, free content Internet encyclopedia, supported and hosted by the non-profit Wikimedia Foundation.",
+        "url": "http://www.ncbi.nlm.nih.gov/mesh",
+        "comment": "(Manually added) Not present in UniProt DB. Currently fixed to enwiki."
+    }
+}

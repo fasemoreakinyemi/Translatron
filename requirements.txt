@@ -1,0 +1,10 @@
+nltk >= 2.0.4
+cherrypy
+autobahn
+YakDB
+ansicolor
+simplejson
+pyzmq >= 14.0
+msgpack-python
+lxml
+beautifulsoup4

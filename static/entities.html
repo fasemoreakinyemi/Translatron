@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Translatron</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/Translatron.css">
+    </head>
+    <!-- HEAD -->
+    <body ng-app="Translatron">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Translatron</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a id="searchLink" href="/">
+                        <span class="glyphicon glyphicon-search"></span>Search
+                    </a>
+                </li>
+                <!--<li>
+                    <a id="documentsLink" href="/">
+                        <span class="glyphicon glyphicon-book"></span>Documents
+                    </a>
+                </li>-->
+                <li>
+                    <a id="searchLink" href="/entities.html">
+                        <span class="glyphicon glyphicon-leaf"></span>Entities
+                    </a>
+                </li>
+                <!--<li>
+                    <a id="searchLink" href="/">
+                        <span class="glyphicon glyphicon-cog"></span>Options
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- NAVBAR -->
+
+    <div id="mainContainer" class="container" data-ng-controller="EntityCtrl" style="margin-top: 20px;">
+      <div class="row">
+        <div class="col-lg-12">
+            <input class="form-control" id="" placeholder="Interactive entity search"
+                   data-ng-change="performSearch()"
+                   data-ng-model="searchExpression" autofocus/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="searchResults" data-ng-cloak>
+            <h4 data-ng-if="searchResults">Entities:</h4>
+            <div class="results" ng-cloak>
+                <div class="row" ng-repeat="entity in searchResults">
+                    <div class="panel panel-default entity-panel" data-docid="{{entity["id"]}}">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">{{entity.id}}</h3>
+                      </div>
+                      <div class="panel-body">
+                        <h3>{{entity.name}}</h3>
+                        <h5>Type: {{entity.type}}
+                        <h5>Imported from {{entity.source}}</h5>
+                        <h5>Original source:
+                            <linklabel href="{{entity.origsource.DOI | DOILink}}" label="DOI" color="primary"></linklabel>
+                            <linklabel href="{{entity.origsource.PubMed | PubMedLink}}" label="PubMed" color="primary"></linklabel>
+                        </h5>
+
+                        <h4>Aliases <span class="shiftclick-info">(shift-click ID to search)</span></h4>
+                        <div ng-repeat="(refDB, refIds) in entity.ref" class="entityref">
+                            <a ng-href="{{metaDB[refDB].url}}" target="_blank"  popover-placement="right" popover="{{metaDB[refDB].description}}" popover-trigger="mouseenter" >{{refDB}}</a> -
+                                <span ng-repeat="refId in refIds track by $index" ng-init="template = metaDB[refDB].urltemplate">
+                                    <span ng-if="$index != 0">,</span>
+                                    <a ng-href="{{refId | dbref:template}}" ng-click="clickSearch(refId, $event)" target="_blank">{{refId}}</a>
+                                </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Load JS -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.highlight.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-bootstrap.min.js"></script>
+    <script src="/js/Translatron.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
