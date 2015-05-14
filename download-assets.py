@@ -35,6 +35,11 @@ def ensureFileIsPresent(asset, directory, forceDownload=False):
     if url is None: # --> no need to download
         return
     if not os.path.isfile(filepath) or forceDownload:
+        #Create directory if required
+        dirname = os.path.dirname(filepath)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        #Perform download
         print (black("Downloading %s" % filename, bold=True))
         urllib.request.urlretrieve(url, filepath)
 
@@ -44,10 +49,12 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--force-download", action="store_true", help="Force downloading assets")
     parser.add_argument("-d", "--directory", default="./static", help="Directory to download (must exist)")
     args = parser.parse_args()
-    #
+    #Check if the --directory arg is valid
     if not os.path.isdir(args.directory):
         print(red("%s is not a directory" % args.directory, bold=True))
         sys.exit(1)
+    #Create subdirs if not already present
+
     #Run download if file
     for asset in assets:
         ensureFileIsPresent(asset, args.directory, args.force_download)
