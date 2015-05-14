@@ -1,0 +1,59 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+h4.resultName {margin-bottom: 0px;}
+
+.result {margin-bottom: 5px;}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+#mainContainer, #searchResults {
+    margin-left: 15px;
+}
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.glyphicon-label {
+    vertical-align: -20% !important;
+    display: inline !important;
+    padding: .2em 0em .3em;
+    font-size: 150%;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.nav .glyphicon {
+    margin-right: 3px;
+    font-size: 135%;
+}
+.propDisplay {margin-left: 5px; margin-right: 15px;}
+.decimal-input input {
+    display: inline-block !important;
+    width: auto !important;
+}
+.authors, .journal {
+    color: #444;
+    font-size: 75%;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+.entity-panel h3 {
+    margin-top: 0px;
+}
+
+.docoptions {
+    float: right;
+}
+.shiftclick-info {
+    font-size: 75%;
+}
